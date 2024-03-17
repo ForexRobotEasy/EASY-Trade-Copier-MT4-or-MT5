@@ -1,0 +1,86 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                         EASY Trade Copier MT4/MT5|
+//|                                   https://www.forexroboteasy.com |
+//|                                          Forex Robot Easy Team   |
+//+------------------------------------------------------------------+
+
+// Include necessary libraries and define global variables
+#include <Trade\Trade.mqh>
+#include <Arrays\ArrayObj.mqh>
+
+CTrade trade; // Trade object for executing trades
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Initialize trade copying functionality
+    if(!InitializeTradeCopier())
+    {
+        Print('Failed to initialize trade copier!');
+        return INIT_FAILED;
+    }
+
+    // Set trade execution speed
+    trade.SetDeviationInPoints(5); // 5 points deviation
+
+    return INIT_SUCCEEDED;
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Deinitialize trade copier
+    DeinitializeTradeCopier();
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Copy trades from main MT5 accounts to multiple MT5 and MT4 accounts
+    CopyTrades();
+}
+
+//+------------------------------------------------------------------+
+//| Initialize trade copier                                          |
+//+------------------------------------------------------------------+
+bool InitializeTradeCopier()
+{
+    // Initialize trade copying functionality
+    // Add code here to implement trade copying functionality
+    // Return true if initialization is successful, false otherwise
+    return true;
+}
+
+//+------------------------------------------------------------------+
+//| Deinitialize trade copier                                        |
+//+------------------------------------------------------------------+
+void DeinitializeTradeCopier()
+{
+    // Deinitialize trade copying functionality
+    // Add code here to deinitialize trade copier
+}
+
+//+------------------------------------------------------------------+
+//| Copy trades from main MT5 accounts to multiple MT5 and MT4 accounts|
+//+------------------------------------------------------------------+
+void CopyTrades()
+{
+    // Copy trades from main MT5 accounts to multiple MT5 and MT4 accounts
+    // Add code here to copy trades
+}
+
+//+------------------------------------------------------------------+
+//| Script program start function                                    |
+//+------------------------------------------------------------------+
+void OnStart()
+{
+    // Run trade copier
+    OnTick();
+}
